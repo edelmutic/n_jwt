@@ -1,4 +1,4 @@
-class AuthController {
+class authController {
   async registration(req, res) {
     try {
     } catch (error) {}
@@ -9,6 +9,7 @@ class AuthController {
   }
   async getUsers(req, res) {
     try {
+      res.json('sever working');
     } catch (error) {}
   }
 }
