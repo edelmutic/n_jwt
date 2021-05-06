@@ -2,8 +2,10 @@ const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
 const PORT = process.env.PORT || 5000;
+const authRouter = require('');
 
 app.use(express.json());
+app.use('/auth', authRouter);
 
 const start = async () => {
   try {
