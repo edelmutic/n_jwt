@@ -9,7 +9,7 @@ class authController {
   }
   async getUsers(req, res) {
     try {
-      res.json('sever working');
+      res.json('server working');
     } catch (error) {}
   }
 }
