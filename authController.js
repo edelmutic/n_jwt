@@ -10,7 +10,15 @@ class authController {
       if (candidate) {
         return res.status(400).json({ message: 'User already exist' });
       }
-      const user = new User();
+      const hashPassword = bcrypt.hashSync(password, 5);
+      const userRole = await Role.findOne({ value: 'USER' });
+      const user = new User({
+        username,
+        password: hashPassword,
+        roles: [userRole.value],
+      });
+      await user.save();
+      return res.json({ message: 'User was succesfully registered' });
     } catch (error) {
       console.log(error);
       res.status(400).json({ message: 'Registration error' });
